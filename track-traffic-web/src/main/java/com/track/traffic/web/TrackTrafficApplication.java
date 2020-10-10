@@ -6,8 +6,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class TrackTrafficApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(TrackTrafficApplication.class, args);
-	}
+    /**
+     * 函数启动
+     *
+     * @param args 请求参数
+     */
+    public static void main(String[] args) {
+        SpringApplication.run(TrackTrafficApplication.class, args);
+    }
 
 }
