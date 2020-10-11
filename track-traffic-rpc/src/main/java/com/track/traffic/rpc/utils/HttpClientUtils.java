@@ -48,7 +48,6 @@ public class HttpClientUtils {
     private static final HttpClient CLIENT = HttpClients.custom()
             .setMaxConnTotal(200)
             .setMaxConnPerRoute(32)
-            .setRedirectStrategy(new DefaultRedirectStrategy())
             .setDefaultRequestConfig(RequestConfig.custom()
                     .setConnectTimeout(TIMEOUT)
                     .setSocketTimeout(TIMEOUT)
