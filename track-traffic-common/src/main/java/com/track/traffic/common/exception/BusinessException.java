@@ -18,4 +18,15 @@ public class BusinessException extends BaseException {
     public BusinessException(ErrorCode errorCode, String message) {
         super(errorCode, message);
     }
+
+    /**
+     * 异常透传
+     *
+     * @param errorCode 错误码
+     * @param message   消息
+     * @param cause     原因
+     */
+    public BusinessException(ErrorCode errorCode, String message, Throwable cause) {
+        super(errorCode, message, cause);
+    }
 }

@@ -26,4 +26,16 @@ public class BaseException extends RuntimeException {
         super(message);
         this.errorCode = errorCode;
     }
+
+    /**
+     * 默认构造函数
+     *
+     * @param errorCode 错误码
+     * @param message   错误消息
+     * @param cause     原因
+     */
+    public BaseException(ErrorCode errorCode, String message, Throwable cause) {
+        super(message, cause);
+        this.errorCode = errorCode;
+    }
 }

@@ -9,18 +9,16 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>track-traffic-service</artifactId>
+    <artifactId>track-traffic-rpc</artifactId>
 
     <dependencies>
         <dependency>
-            <groupId>com.track.traffic</groupId>
-            <artifactId>track-traffic-mapper</artifactId>
-            <version>${project.version}</version>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
         </dependency>
-
         <dependency>
             <groupId>com.track.traffic</groupId>
-            <artifactId>track-traffic-rpc</artifactId>
+            <artifactId>track-traffic-common</artifactId>
             <version>${project.version}</version>
         </dependency>
     </dependencies>
