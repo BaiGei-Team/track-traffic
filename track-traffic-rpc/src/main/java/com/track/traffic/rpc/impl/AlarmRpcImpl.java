@@ -50,7 +50,7 @@ public class AlarmRpcImpl implements AlarmRpc {
                 null,
                 req,
                 HistoryAlarmQueryResp.class);
-        ValidatorUtils.checkNotNull(req, "query history alarm error, request=" + req + ", resp=" + resp);
+        ValidatorUtils.checkNotNull(resp, "query history alarm error, request=" + req + ", resp=" + resp);
         return resp.getData();
     }
 }
