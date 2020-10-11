@@ -13,6 +13,7 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.ByteArrayEntity;
 import org.apache.http.entity.ContentType;
+import org.apache.http.impl.client.DefaultRedirectStrategy;
 import org.apache.http.impl.client.HttpClients;
 import org.springframework.http.HttpStatus;
 
@@ -47,6 +48,7 @@ public class HttpClientUtils {
     private static final HttpClient CLIENT = HttpClients.custom()
             .setMaxConnTotal(200)
             .setMaxConnPerRoute(32)
+            .setRedirectStrategy(new DefaultRedirectStrategy())
             .setDefaultRequestConfig(RequestConfig.custom()
                     .setConnectTimeout(TIMEOUT)
                     .setSocketTimeout(TIMEOUT)
@@ -105,6 +107,7 @@ public class HttpClientUtils {
             // 构造请求对象
             HttpPost post = new HttpPost(url);
             // 写入头信息
+            post.addHeader("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36");
             post.addHeader("Connection", "closed");
             post.addHeader("Cache-Control", "no-cache");
             post.addHeader("Content-Type", ContentType.APPLICATION_JSON.toString());
@@ -163,7 +166,9 @@ public class HttpClientUtils {
         }
         // 校验响应码
         StatusLine statusLine = resp.getStatusLine();
-        if (Objects.isNull(statusLine) || statusLine.getStatusCode() != HttpStatus.OK.value()) {
+        if (Objects.isNull(statusLine) ||
+                statusLine.getStatusCode() < HttpStatus.OK.value() ||
+                statusLine.getStatusCode() >= HttpStatus.BAD_REQUEST.value()) {
             throw new HttpException("response code error, code=" + statusLine.getStatusCode() + ", errorMsg=" + statusLine.getReasonPhrase());
         }
     }
