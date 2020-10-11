@@ -1,6 +1,7 @@
 package com.track.traffic.rpc;
 
-import com.track.traffic.rpc.po.request.AlarmQueryRequest;
+import com.track.traffic.rpc.po.request.AlarmQueryReq;
+import com.track.traffic.rpc.po.request.HistoryAlarmQueryReq;
 import com.track.traffic.rpc.po.vo.AlarmVO;
 
 import java.util.List;
@@ -13,10 +14,18 @@ import java.util.List;
 public interface AlarmRpc {
 
     /**
-     * 查询告警列表
+     * 查询当前告警列表
      *
-     * @param request 请求对象
+     * @param req 请求对象
      * @return 结果
      */
-    List<AlarmVO> queryAlarms(AlarmQueryRequest request);
+    List<AlarmVO> queryCurrentAlarms(AlarmQueryReq req);
+
+    /**
+     * 查询历史告警列表
+     *
+     * @param req 请求对象
+     * @return 结果
+     */
+    List<AlarmVO> queryHistoryAlarms(HistoryAlarmQueryReq req);
 }
