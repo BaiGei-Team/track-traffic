@@ -33,34 +33,32 @@
             <artifactId>track-traffic-service</artifactId>
             <version>${project.version}</version>
         </dependency>
-
+        <!-- log4j2日志 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-log4j2</artifactId>
         </dependency>
-
+        <!-- Ali的Druid -->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid-spring-boot-starter</artifactId>
         </dependency>
-
+        <!-- 用mybatis-plus开发 -->
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
         </dependency>
-
         <!-- rocket api使用 -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-jdbc</artifactId>
         </dependency>
-
         <!-- rocket api依赖包 -->
         <dependency>
             <groupId>com.github.alenfive</groupId>
             <artifactId>rocket-api-boot-starter</artifactId>
         </dependency>
-
+        <!-- mysql依赖 -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
